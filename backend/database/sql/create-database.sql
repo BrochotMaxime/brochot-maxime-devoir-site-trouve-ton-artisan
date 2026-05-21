@@ -1,10 +1,17 @@
--- Création de la base de données "trouve_on_artisan"
+-- Création de la base de données "trouve_ton_artisan"
 
 CREATE DATABASE IF NOT EXISTS trouve_ton_artisan
         CHARACTER SET utf8mb4
         COLLATE utf8mb4_unicode_ci;
 
--- Utilisatio de la base de données "trouve_on_artisan"
+-- Création de l'utilisateur "artisan_user" avec les privilèges nécessaires
+
+CREATE USER IF NOT EXISTS 'user'@'localhost' IDENTIFIED BY 'password';
+
+GRANT ALL PRIVILEGES ON trouve_ton_artisan.* TO 'user'@'localhost';
+FLUSH PRIVILEGES;
+
+-- Utilisation de la base de données "trouve_ton_artisan"
 
 USE trouve_ton_artisan;
 
