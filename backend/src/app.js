@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 
 const categoryRoutes = require('./routes/categoryRoutes');
+const artisanRoutes = require('./routes/artisanRoutes');
 
 const app = express();
 
@@ -13,5 +14,6 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api/categories', categoryRoutes);
+app.use('/api/artisans', artisanRoutes);
 
 module.exports = app;
