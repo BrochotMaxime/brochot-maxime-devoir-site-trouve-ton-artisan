@@ -1,5 +1,7 @@
 import { Link } from 'react-router-dom';
 import logo from '../assets/logo.png';
+import loupe from '../assets/loupe.png';
+import menuBurger from '../assets/burger-bar.png';
 
 function Header() {
         return (
@@ -10,25 +12,21 @@ function Header() {
                                 </Link>
 
                                 <div className="header__mobile">
-                                        <button className="header__icon-button" aria-label="Rechercher">
-                                                🔍
-                                        </button>
+                                        <Link to="/recherche" className="header__icon-button" aria-label="Rechercher un artisan">
+                                                <img src={loupe} alt="Loupe rechercher" />
+                                        </Link>
 
-                                        <button className="header__icon-button" aria-label="Ouvrir le menu">
-                                                ☰
-                                        </button>
+                                        <Link to="#" className="header__icon-button" aria-label="Menu de navigation">
+                                                <img src={menuBurger} alt="Menu burger" />
+                                        </Link>
                                 </div>
 
                                 <div className="header__desktop">
                                         <form className="header__search">
-                                                <input
-                                                        type="search"
-                                                        placeholder="Rechercher un artisan"
-                                                        aria-label="Rechercher un artisan"
-                                                />
-                                                <button type="submit" aria-label="Lancer la recherche">
-                                                🔍
-                                                </button>
+                                                <input type="search" placeholder="Rechercher un artisan" aria-label="Rechercher un artisan" />
+                                                <Link to="/recherche" className="header__icon-button" aria-label="Rechercher un artisan">
+                                                        <img src={loupe} alt="Loupe rechercher" />
+                                                </Link>
                                         </form>
 
                                         <nav className="header__nav" aria-label="Navigation principale">
