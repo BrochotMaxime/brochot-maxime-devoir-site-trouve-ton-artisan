@@ -216,3 +216,235 @@ body {
                 }
         }
 }
+
+.hero {
+        min-height: 260px;
+        background-size: cover;
+        background-position: center;
+
+        &__overlay {
+                min-height: 260px;
+                background: rgba(0, 0, 0, 0.25);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 32px 16px;
+        }
+
+        &__content {
+                max-width: 700px;
+                text-align: center;
+                color: #ffffff;
+
+                h1 {
+                        font-size: 32px;
+                        font-weight: bold;
+                        margin-bottom: 16px;
+                }
+
+                p {
+                        font-size: 16px;
+                        line-height: 1.5;
+                        margin-bottom: 24px;
+                }
+        }
+
+        &__button {
+                display: inline-block;
+                background-color: #0074c7;
+                color: #ffffff;
+                text-decoration: none;
+                padding: 12px 32px;
+                border-radius: 8px;
+                font-weight: bold;
+
+                &:hover {
+                        background-color: #00497c;
+                        color: #ffffff;
+                }
+        }
+
+        @media (min-width: 768px) {
+                min-height: 300px;
+
+                &__overlay {
+                        min-height: 300px;
+                }
+        }
+
+        @media (min-width: 1200px) {
+                min-height: 420px;
+
+                &__overlay {
+                        min-height: 420px;
+                }
+        }
+}
+
+.steps {
+        background-color: #f1f8fc;
+        padding: 56px 16px;
+
+        &__container {
+                max-width: 1200px;
+                margin: 0 auto;
+        }
+
+        h2 {
+                color: #384050;
+                font-size: 26px;
+                font-weight: bold;
+                text-align: center;
+                margin-bottom: 32px;
+        }
+
+        &__grid {
+                display: grid;
+                gap: 24px;
+        }
+
+        @media (min-width: 768px) {
+                padding: 72px 32px;
+
+                &__grid {
+                        grid-template-columns: repeat(2, 1fr);
+                }
+        }
+
+        @media (min-width: 1200px) {
+                padding: 88px 120px;
+
+                &__grid {
+                        grid-template-columns: repeat(4, 1fr);
+                }
+        }
+}
+
+.step-card {
+        background-color: #ffffff;
+        border-radius: 16px;
+        padding: 24px;
+        text-align: center;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+        &__number {
+                width: 44px;
+                height: 44px;
+                margin: 0 auto 16px;
+                border-radius: 50%;
+                background-color: #0074c7;
+                color: #ffffff;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: 700;
+                font-size: 20px;
+        }
+
+        h3 {
+                color: #384050;
+                font-size: 22px;
+                font-weight: semi-bold;
+                margin-bottom: 12px;
+        }
+
+        p {
+                color: #384050;
+                font-size: 16px;
+                line-height: 1.5;
+                margin: 0;
+        }
+}
+
+.top-artisans {
+        background-color: #ffffff;
+        padding: 56px 16px;
+
+        &__container {
+                max-width: 1200px;
+                margin: 0 auto;
+        }
+
+        h2 {
+                color: #384050;
+                font-size: 26px;
+                font-weight: bold;
+                text-align: center;
+                margin-bottom: 32px;
+        }
+
+        &__grid {
+                display: grid;
+                gap: 24px;
+        }
+
+        @media (min-width: 768px) {
+                padding: 72px 32px;
+
+                &__grid {
+                        grid-template-columns: repeat(3, 1fr);
+                }
+        }
+
+        @media (min-width: 1200px) {
+                padding: 88px 120px;
+        }
+}
+
+.artisan-card {
+        background-color: #f1f8fc;
+        border-radius: 16px;
+        overflow: hidden;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+
+        &__image {
+                height: 160px;
+                background-color: #d9d9d9;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: #384050;
+                font-size: 14px;
+
+                img {
+                        width: 100%;
+                        height: 100%;
+                        object-fit: cover;
+                }
+        }
+
+        &__content {
+                padding: 20px;
+
+                h3 {
+                        color: #384050;
+                        font-size: 22px;
+                        font-weight: semi-bold;
+                        margin-bottom: 8px;
+                }
+
+                p {
+                        color: #384050;
+                        margin-bottom: 6px;
+                        font-size: 16px;
+                }
+        }
+
+        &__link {
+                display: inline-block;
+                margin-top: 12px;
+                color: #0074c7;
+                font-weight: 600;
+                text-decoration: none;
+
+                &:hover {
+                        color: #00497c;
+                }
+        }
+}
+
+.rating-stars {
+        color: #f4b400;
+        font-size: 18px;
+        margin-bottom: 8px;
+}
