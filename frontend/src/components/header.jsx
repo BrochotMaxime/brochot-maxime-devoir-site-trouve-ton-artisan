@@ -1,9 +1,25 @@
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useState } from 'react';
+
 import logo from '../assets/logo.png';
 import loupe from '../assets/loupe.png';
 import menuBurger from '../assets/burger-bar.png';
 
 function Header() {
+        const [searchTerm, setSearchTerm] = useState('');
+        const navigate = useNavigate();
+
+        function handleSearchSubmit(event) {
+                event.preventDefault();
+
+                if (!searchTerm.trim()) {
+                        return;
+                }
+
+                navigate(`/recherche?name=${encodeURIComponent(searchTerm)}`);
+                setSearchTerm('');
+        }
+
         return (
                 <header className="header">
                         <div className="header__container">
@@ -22,11 +38,18 @@ function Header() {
                                 </div>
 
                                 <div className="header__desktop">
-                                        <form className="header__search">
-                                                <input type="search" placeholder="Rechercher un artisan" aria-label="Rechercher un artisan" />
-                                                <Link to="/recherche" className="header__icon-button" aria-label="Rechercher un artisan">
-                                                        <img src={loupe} alt="Loupe rechercher" />
-                                                </Link>
+                                        <form className="header__search" onSubmit={handleSearchSubmit}>
+                                                <input
+                                                        type="search"
+                                                        placeholder="Rechercher un artisan"
+                                                        aria-label="Rechercher un artisan"
+                                                        value={searchTerm}
+                                                        onChange={(event) => setSearchTerm(event.target.value)}
+                                                />
+
+                                                <button type="submit" className="header__search-button" aria-label="Lancer la recherche">
+                                                        <img src={loupe} alt="" />
+                                                </button>
                                         </form>
 
                                         <nav className="header__nav" aria-label="Navigation principale">
