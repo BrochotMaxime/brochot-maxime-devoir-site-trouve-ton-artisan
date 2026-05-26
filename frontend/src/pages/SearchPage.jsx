@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet-async';
 import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
@@ -43,33 +44,43 @@ function SearchPage() {
         }, [name]);
 
         return (
-                <section className="search-page">
-                        <div className="search-page__container">
-                                <h1>Résultats de recherche</h1>
+                <>
+                        <Helmet>
+                                <title>Trouve ton artisan - Recherche</title>
+                                <meta
+                                        name="description"
+                                        content="Résultats de recherche pour les artisans."
+                                />
+                        </Helmet>
 
-                                {name && (
-                                        <p className="search-page__query">
-                                                Recherche : <strong>{name}</strong>
-                                        </p>
-                                )}
+                        <section className="search-page">
+                                <div className="search-page__container">
+                                        <h1>Résultats de recherche</h1>
 
-                                {isLoading && <p>Chargement...</p>}
+                                        {name && (
+                                                <p className="search-page__query">
+                                                        Recherche : <strong>{name}</strong>
+                                                </p>
+                                        )}
 
-                                {errorMessage && <p>{errorMessage}</p>}
+                                        {isLoading && <p>Chargement...</p>}
 
-                                {!isLoading && !errorMessage && artisans.length > 0 && (
-                                        <div className="search-page__grid">
-                                                {artisans.map((artisan) => (
-                                                        <ArtisanCard key={artisan.id_artisan} artisan={artisan} />
-                                                ))}
-                                        </div>
-                                )}
+                                        {errorMessage && <p>{errorMessage}</p>}
 
-                                {!isLoading && !errorMessage && artisans.length === 0 && (
-                                        <p>Aucun artisan trouvé.</p>
-                                )}
-                        </div>
-                </section>
+                                        {!isLoading && !errorMessage && artisans.length > 0 && (
+                                                <div className="search-page__grid">
+                                                        {artisans.map((artisan) => (
+                                                                <ArtisanCard key={artisan.id_artisan} artisan={artisan} />
+                                                        ))}
+                                                </div>
+                                        )}
+
+                                        {!isLoading && !errorMessage && artisans.length === 0 && (
+                                                <p>Aucun artisan trouvé.</p>
+                                        )}
+                                </div>
+                        </section>
+                </>
         );
 }
 
