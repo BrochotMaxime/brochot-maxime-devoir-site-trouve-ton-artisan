@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import RatingStars from '../components/homePage/RatingStars';
+import { Helmet } from 'react-helmet-async';
 
 function ArtisanDetailPage() {
         const { id } = useParams();
@@ -84,96 +85,113 @@ function ArtisanDetailPage() {
         }
 
         return (
-                <section className="artisan-detail">
-                        <div className="artisan-detail__container">
-                                <div className="artisan-detail__image">
-                                        {artisan.image ? (
-                                                <img src={artisan.image} alt={artisan.nom_artisan} />
-                                        ) : (
-                                                <span>Image artisan</span>
-                                        )}
-                                </div>
+                <>
+                        <Helmet>
+                                <title>
+                                        {artisan ? `Trouve ton artisan - ${artisan.nom_artisan}` : 'Trouve ton artisan - Artisan'}
+                                </title>
 
-                                <div className="artisan-detail__content">
-                                        <h1>{artisan.nom_artisan}</h1>
+                                <meta
+                                        name="description"
+                                        content={
+                                                artisan
+                                                        ? `Découvrez la fiche de ${artisan.nom_artisan}, artisan ${artisan.specialite?.nom_specialite} à ${artisan.ville_artisan}.`
+                                                        : 'Découvrez la fiche détaillée d’un artisan.'
+                                        }
+                                />
+                        </Helmet>
 
-                                        <RatingStars rating={artisan.note_artisan} />
-
-                                        <p className="artisan-detail__meta">
-                                                {artisan.specialite?.nom_specialite} — {artisan.ville_artisan}
-                                        </p>
-
-                                        <div className="artisan-detail__about">
-                                                <h2>À propos</h2>
-                                                <p>{artisan.a_propos}</p>
+                        <section className="artisan-detail">
+                                <div className="artisan-detail__container">
+                                        <div className="artisan-detail__image">
+                                                {artisan.image ? (
+                                                        <img src={artisan.image} alt={artisan.nom_artisan} />
+                                                ) : (
+                                                        <span>Image artisan</span>
+                                                )}
                                         </div>
 
-                                        {artisan.site_web && (
-                                                <p>
-                                                        <a href={artisan.site_web} target="_blank" rel="noreferrer">
-                                                                Voir le site web
-                                                        </a>
+                                        <div className="artisan-detail__content">
+                                                <h1>{artisan.nom_artisan}</h1>
+
+                                                <RatingStars rating={artisan.note_artisan} />
+
+                                                <p className="artisan-detail__meta">
+                                                        {artisan.specialite?.nom_specialite} — {artisan.ville_artisan}
                                                 </p>
-                                        )}
+
+                                                <div className="artisan-detail__about">
+                                                        <h2>À propos</h2>
+                                                        <p>{artisan.a_propos}</p>
+                                                </div>
+
+                                                {artisan.site_web && (
+                                                        <p>
+                                                                <a href={artisan.site_web} target="_blank" rel="noreferrer">
+                                                                        Voir le site web
+                                                                </a>
+                                                        </p>
+                                                )}
+                                        </div>
                                 </div>
-                        </div>
 
-                        <div className="artisan-detail__contact-container">
-                                <form className="contact-form" onSubmit={handleSubmit}>
-                                        <h2>Contacter cet artisan</h2>
+                                <div className="artisan-detail__contact-container">
+                                        <form className="contact-form" onSubmit={handleSubmit}>
+                                                <h2>Contacter cet artisan</h2>
 
-                                        <label>
-                                                Nom *
-                                                        <input
-                                                                type="text"
-                                                                name="name"
-                                                                value={formData.name}
-                                                                onChange={handleChange}
-                                                        />
-                                        </label>
+                                                <label>
+                                                        Nom *
+                                                                <input
+                                                                        type="text"
+                                                                        name="name"
+                                                                        value={formData.name}
+                                                                        onChange={handleChange}
+                                                                />
+                                                </label>
 
-                                        <label>
-                                                Email *
-                                                        <input
-                                                                type="email"
-                                                                name="email"
-                                                                value={formData.email}
-                                                                onChange={handleChange}
-                                                        />
-                                        </label>
+                                                <label>
+                                                        Email *
+                                                                <input
+                                                                        type="email"
+                                                                        name="email"
+                                                                        value={formData.email}
+                                                                        onChange={handleChange}
+                                                                />
+                                                </label>
 
-                                        <label>
-                                                Objet *
-                                                        <input
-                                                                type="text"
-                                                                name="subject"
-                                                                value={formData.subject}
-                                                                onChange={handleChange}
-                                                        />
-                                        </label>
+                                                <label>
+                                                        Objet *
+                                                                <input
+                                                                        type="text"
+                                                                        name="subject"
+                                                                        value={formData.subject}
+                                                                        onChange={handleChange}
+                                                                />
+                                                </label>
 
-                                        <label>
-                                                Message *
-                                                        <textarea
-                                                                name="message"
-                                                                value={formData.message}
-                                                                onChange={handleChange}
-                                                        />
-                                        </label>
+                                                <label>
+                                                        Message *
+                                                                <textarea
+                                                                        name="message"
+                                                                        value={formData.message}
+                                                                        onChange={handleChange}
+                                                                />
+                                                </label>
 
-                                        <label className="contact-form__consent">
-                                                <input type="checkbox" name="consent" />
-                                                J'accepte les Conditions Générales d'Utilisation (CGU) *
-                                        </label>
+                                                <label className="contact-form__consent">
+                                                        <input type="checkbox" name="consent" />
+                                                        J'accepte les Conditions Générales d'Utilisation (CGU) *
+                                                </label>
 
-                                        {successMessage && (<p className="contact-form__success">{successMessage}</p>)}
+                                                {successMessage && (<p className="contact-form__success">{successMessage}</p>)}
 
-                                        {errorMessage && (<p className="contact-form__error">{errorMessage}</p>)}
+                                                {errorMessage && (<p className="contact-form__error">{errorMessage}</p>)}
 
-                                        <button type="submit">Envoyer</button>
-                                </form>
-                        </div>
-                </section>
+                                                <button type="submit">Envoyer</button>
+                                        </form>
+                                </div>
+                        </section>
+                </>
         );
 }
 
