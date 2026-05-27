@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 import ArtisanCard from '../components/homePage/ArtisanCard';
+import Loader from '../components/common/Loader';
+import ErrorMessage from '../components/common/ErrorMessage';
 
 function SearchPage() {
         const [searchParams] = useSearchParams();
@@ -63,9 +65,9 @@ function SearchPage() {
                                                 </p>
                                         )}
 
-                                        {isLoading && <p>Chargement...</p>}
+                                        {isLoading && <Loader />}
 
-                                        {errorMessage && <p>{errorMessage}</p>}
+                                        {errorMessage && <ErrorMessage message={errorMessage} />}
 
                                         {!isLoading && !errorMessage && artisans.length > 0 && (
                                                 <div className="search-page__grid">
@@ -76,7 +78,7 @@ function SearchPage() {
                                         )}
 
                                         {!isLoading && !errorMessage && artisans.length === 0 && (
-                                                <p>Aucun artisan trouvé.</p>
+                                                <ErrorMessage message="Aucun artisan trouvé." />
                                         )}
                                 </div>
                         </section>

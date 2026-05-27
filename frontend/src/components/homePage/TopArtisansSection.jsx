@@ -1,5 +1,8 @@
 import { useEffect, useState } from 'react';
+
 import ArtisanCard from './ArtisanCard';
+import Loader from '../common/Loader';
+import ErrorMessage from '../common/ErrorMessage';
 
 function TopArtisansSection() {
         const [artisans, setArtisans] = useState([]);
@@ -32,9 +35,9 @@ function TopArtisansSection() {
                         <div className="top-artisans__container">
                                 <h2>Les artisans du mois</h2>
 
-                                {isLoading && <p>Chargement...</p>}
+                                {isLoading && <Loader />}
 
-                                {errorMessage && <p>{errorMessage}</p>}
+                                {errorMessage && <ErrorMessage message={errorMessage} />}
 
                                 {!isLoading && !errorMessage && (
                                         <div className="top-artisans__grid">

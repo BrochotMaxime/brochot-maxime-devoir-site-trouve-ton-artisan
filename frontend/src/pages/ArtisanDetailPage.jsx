@@ -1,8 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-import RatingStars from '../components/homePage/RatingStars';
 import { Helmet } from 'react-helmet-async';
+import RatingStars from '../components/homePage/RatingStars';
+import Loader from '../components/common/Loader';
+import ErrorMessage from '../components/common/ErrorMessage';
 
 function ArtisanDetailPage() {
         const { id } = useParams();
@@ -77,11 +79,11 @@ function ArtisanDetailPage() {
         }
 
         if (isLoading) {
-                return <p>Chargement...</p>;
+                return <Loader />;
         }
 
         if (!artisan) {
-                return <p>{errorMessage}</p>;
+                return <ErrorMessage message={errorMessage} />;
         }
 
         return (
