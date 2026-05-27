@@ -1,6 +1,8 @@
 const express = require('express');
 const cors = require('cors');
 const helmet = require('helmet');
+const rateLimit = require('express-rate-limit');
+const hpp = require('hpp');
 
 const categoryRoutes = require('./routes/categoryRoutes');
 const artisanRoutes = require('./routes/artisanRoutes');
@@ -8,7 +10,17 @@ const contactRoutes = require('./routes/contactRoutes');
 
 const app = express();
 
+const limiter = rateLimit({
+        windowMs: 15 * 60 * 1000,
+        max: 100,
+        message: {
+                message: 'Trop de requêtes envoyées. Veuillez réessayer plus tard.',
+        },
+});
+
 app.use(helmet());
+app.use(limiter);
+app.use(hpp());
 
 app.use(cors({
         origin: 'http://localhost:5173',
