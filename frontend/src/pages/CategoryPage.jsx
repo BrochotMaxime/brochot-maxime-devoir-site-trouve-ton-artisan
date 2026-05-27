@@ -19,7 +19,7 @@ function CategoryPage() {
                         try {
                                 setIsLoading(true);
 
-                                const response = await fetch(`http://localhost:3000/api/categories/${id}/artisans`);
+                                const response = await fetch(`${import.meta.env.VITE_API_URL}/api/categories/${id}/artisans`);
 
                                 if (!response.ok) {
                                         throw new Error('Erreur lors de la récupération des artisans.');

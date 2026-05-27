@@ -12,7 +12,7 @@ function TopArtisansSection() {
         useEffect(() => {
                 async function fetchTopArtisans() {
                         try {
-                                const response = await fetch('http://localhost:3000/api/artisans/top');
+                                const response = await fetch(`${import.meta.env.VITE_API_URL}/api/artisans/top`);
 
                                 if (!response.ok) {
                                         throw new Error('Erreur lors de la récupération des artisans.');
