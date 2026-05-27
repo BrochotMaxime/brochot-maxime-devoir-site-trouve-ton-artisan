@@ -3,6 +3,8 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import ArtisanCard from '../components/homePage/ArtisanCard';
+import Loader from '../components/common/Loader';
+import ErrorMessage from '../components/common/ErrorMessage';
 
 function CategoryPage() {
         const { id } = useParams();
@@ -60,9 +62,9 @@ function CategoryPage() {
 
                         <section className="category-page">
                                 <div className="category-page__container">
-                                        {isLoading && <p>Chargement...</p>}
+                                        {isLoading && <Loader />}
 
-                                        {errorMessage && <p>{errorMessage}</p>}
+                                        {errorMessage && <ErrorMessage message={errorMessage} />}
 
                                         {!isLoading && !errorMessage && (
                                                 <>
