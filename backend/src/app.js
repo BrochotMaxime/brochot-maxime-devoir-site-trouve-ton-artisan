@@ -19,7 +19,7 @@ app.use(cors({
 app.use(express.json());
 
 app.get('/', (req, res) => {
-        res.json({ message: 'API Trouve ton artisan fonctionne' });
+        res.json({ message: `API Trouve ton artisan fonctionne.` });
 });
 
 app.use('/api/categories', categoryRoutes);
@@ -28,7 +28,7 @@ app.use('/api/contact', contactRoutes);
 
 app.use((req, res) => {
         res.status(404).json({
-                message: 'Route introuvable.',
+                message: `Route introuvable.`,
         });
 });
 
