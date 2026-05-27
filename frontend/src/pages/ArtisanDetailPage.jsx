@@ -181,7 +181,7 @@ function ArtisanDetailPage() {
                                                 </label>
 
                                                 <label className="contact-form__consent">
-                                                        <input type="checkbox" name="consent" />
+                                                        <input type="checkbox" name="consent" required />
                                                         J'accepte les Conditions Générales d'Utilisation (CGU) *
                                                 </label>
 
