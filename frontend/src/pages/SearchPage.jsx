@@ -26,7 +26,7 @@ function SearchPage() {
                                 }
 
                                 const response = await fetch(
-                                        `http://localhost:3000/api/artisans/search?name=${encodeURIComponent(name)}`
+                                        `${import.meta.env.VITE_API_URL}/api/artisans/search?name=${encodeURIComponent(name)}`
                                 );
 
                                 if (!response.ok) {
