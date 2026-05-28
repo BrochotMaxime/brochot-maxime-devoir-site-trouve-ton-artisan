@@ -1,0 +1,43 @@
+.category-page {
+        background-color: #f1f8fc;
+        padding: 48px 16px;
+
+        &__container {
+                max-width: 1200px;
+                margin: 0 auto;
+        }
+
+        h1 {
+                color: #384050;
+                font-size: 32px;
+                font-weight: 700;
+                margin-bottom: 8px;
+        }
+
+        &__count {
+                color: #384050;
+                font-size: 16px;
+                margin-bottom: 32px;
+        }
+
+        &__grid {
+                display: grid;
+                gap: 24px;
+        }
+
+        @media (min-width: 768px) {
+                padding: 64px 32px;
+
+                &__grid {
+                        grid-template-columns: repeat(2, 1fr);
+                }
+        }
+
+        @media (min-width: 1200px) {
+                padding: 80px 120px;
+
+                &__grid {
+                        grid-template-columns: repeat(3, 1fr);
+                }
+        }
+}

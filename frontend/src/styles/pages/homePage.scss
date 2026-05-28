@@ -1,0 +1,125 @@
+.hero {
+        min-height: 260px;
+        background-size: cover;
+        background-position: center;
+
+        &__overlay {
+                min-height: 260px;
+                background: rgba(0, 0, 0, 0.25);
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                padding: 32px 16px;
+        }
+
+        &__content {
+                max-width: 700px;
+                text-align: center;
+                color: #ffffff;
+        }
+
+        &__button {
+                display: inline-block;
+                background-color: #0074c7;
+                color: #ffffff;
+                text-decoration: none;
+                padding: 12px 32px;
+                border-radius: 8px;
+                font-weight: bold;
+
+                &:hover {
+                        background-color: #00497c;
+                        color: #ffffff;
+                }
+        }
+
+        @media (min-width: 768px) {
+                min-height: 300px;
+
+                &__overlay {
+                        min-height: 300px;
+                }
+        }
+
+        @media (min-width: 1200px) {
+                min-height: 420px;
+
+                &__overlay {
+                        min-height: 420px;
+                }
+        }
+}
+
+.steps {
+        background-color: #f1f8fc;
+        padding: 56px 16px;
+
+        &__container {
+                max-width: 1200px;
+                margin: 0 auto;
+        }
+
+        h2 {
+                color: #384050;
+                font-size: 26px;
+                font-weight: bold;
+                text-align: center;
+                margin-bottom: 32px;
+        }
+
+        &__grid {
+                display: grid;
+                gap: 24px;
+        }
+
+        @media (min-width: 768px) {
+                padding: 72px 32px;
+
+                &__grid {
+                        grid-template-columns: repeat(2, 1fr);
+                }
+        }
+
+        @media (min-width: 1200px) {
+                padding: 88px 120px;
+
+                &__grid {
+                        grid-template-columns: repeat(4, 1fr);
+                }
+        }
+}
+
+.top-artisans {
+        background-color: #ffffff;
+        padding: 56px 16px;
+
+        &__container {
+                max-width: 1200px;
+                margin: 0 auto;
+        }
+
+        h2 {
+                color: #384050;
+                font-size: 26px;
+                font-weight: bold;
+                text-align: center;
+                margin-bottom: 32px;
+        }
+
+        &__grid {
+                display: grid;
+                gap: 24px;
+        }
+
+        @media (min-width: 768px) {
+                padding: 72px 32px;
+
+                &__grid {
+                        grid-template-columns: repeat(3, 1fr);
+                }
+        }
+
+        @media (min-width: 1200px) {
+                padding: 88px 120px;
+        }
+}
