@@ -1,0 +1,100 @@
+.footer {
+        background-color: #0074c7;
+        color: #ffffff;
+
+        &__container {
+                display: flex;
+                justify-content: space-between;
+                align-content: center;
+                align-items: center;
+                direction: rtl;
+                padding: 32px 16px;
+        }
+
+        &__top {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                gap: 24px;
+                margin-bottom: 32px;
+        }
+
+        &__logo {
+                display: none;
+
+                img {
+                        width: 160px;
+                        height: auto;
+                }
+        }
+
+        &__infos {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                direction: ltr;
+                text-align: left;
+                align-content: center;
+                font-size: 14px;
+                line-height: 1.6;
+
+                p {
+                        margin: 0;
+                }
+        }
+
+        &__links {
+                display: flex;
+                flex-direction: column;
+                gap: 12px;
+
+                a {
+                        color: #ffffff;
+                        text-decoration: none;
+                        font-size: 14px;
+
+                        &:hover {
+                                color: #82b864;
+                        }
+                }
+        }
+
+        @media (min-width: 768px) {
+                &__container {
+                        display: block;
+                        direction: ltr;
+                        padding: 40px 32px;
+                }
+
+                &__logo {
+                        display: block;
+
+                        img {
+                                width: 190px;
+                        }
+                }
+
+                &__links {
+                        flex-direction: row;
+                        justify-content: center;
+                        flex-wrap: wrap;
+                        padding-top: 24px;
+                        gap: 24px;
+                        border-top: 1px solid #FFFFFF;
+                }
+        }
+
+        @media (min-width: 1200px) {
+                &__container {
+                        max-width: 1440px;
+                        margin: 0 auto;
+                        padding: 48px 120px;
+                }
+
+                &__logo {
+                        img {
+                                width: 220px;
+                        }
+                }
+        }
+}
