@@ -1,5 +1,6 @@
 const { body, validationResult } = require('express-validator');
 
+// Valide les données envoyées par le formulaire de contact
 const validateContact = [
         body('name')
                 .trim()

@@ -1,5 +1,6 @@
 import StepCard from './StepCard';
 
+// Données des étapes pour trouver un artisan
 const steps = [
         {
                 number: `1`,
@@ -23,6 +24,7 @@ const steps = [
         },
 ];
 
+// Composant pour afficher les étapes pour trouver un artisan
 function StepsSection() {
         return (
                 <section className="steps">

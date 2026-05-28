@@ -7,6 +7,7 @@ import Loader from '../components/common/Loader';
 import ErrorMessage from '../components/common/ErrorMessage';
 
 function CategoryPage() {
+        // Récupérer l'id de la catégorie depuis les paramètres de l'URL
         const { id } = useParams();
 
         const [category, setCategory] = useState(null);
@@ -19,6 +20,7 @@ function CategoryPage() {
                         try {
                                 setIsLoading(true);
 
+                                // Récupère la catégorie, ses spécialités et les artisans associés
                                 const response = await fetch(`${import.meta.env.VITE_API_URL}/api/categories/${id}/artisans`);
 
                                 if (!response.ok) {
@@ -29,13 +31,16 @@ function CategoryPage() {
 
                                 setCategory(data);
 
+                                // Transforme les artisans imbriqués dans les spécialités en un tableau simple
                                 const allArtisans = data.specialites.flatMap((specialite) =>
                                         specialite.artisans.map((artisan) => ({ ...artisan, specialite, }))
                                 );
 
                                 setArtisans(allArtisans);
+
                         } catch (error) {
                                 setErrorMessage('Impossible de charger les artisans de cette catégorie.');
+
                         } finally {
                                 setIsLoading(false);
                         }

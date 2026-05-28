@@ -1,5 +1,6 @@
 const { Artisan } = require('../models');
 
+// Gère les messages de contact envoyés par les utilisateurs
 exports.sendContactMessage = async (req, res) => {
         try {
                 const { name, email, subject, message, artisanId } = req.body;

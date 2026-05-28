@@ -1,5 +1,7 @@
 const { Category, Speciality, Artisan } = require('../models');
 
+
+// Récupère toutes les catégories pour alimenter le menu
 exports.getAllCategories = async (req, res) => {
         try {
                 const categories = await Category.findAll({
@@ -15,6 +17,7 @@ exports.getAllCategories = async (req, res) => {
         }
 };
 
+// Récupère une catégorie avec ses spécialités et les artisans associés
 exports.getArtisansByCategory = async (req, res) => {
         try {
                 const { id } = req.params;

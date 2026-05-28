@@ -20,8 +20,10 @@ function TopArtisansSection() {
 
                                 const data = await response.json();
                                 setArtisans(data);
+
                         } catch (error) {
                                 setErrorMessage('Impossible de charger les artisans du mois.');
+                                
                         } finally {
                                 setIsLoading(false);
                         }

@@ -9,6 +9,7 @@ function Header() {
         const [searchTerm, setSearchTerm] = useState('');
         const navigate = useNavigate();
 
+        // Gère la recherche depuis le header et redirige vers la page de résultats
         function handleSearchSubmit(event) {
                 event.preventDefault();
 

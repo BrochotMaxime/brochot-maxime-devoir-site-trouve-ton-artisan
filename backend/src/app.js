@@ -12,6 +12,7 @@ const contactRoutes = require('./routes/contactRoutes');
 
 const app = express();
 
+// Limiteur de requêtes pour éviter les abus
 const limiter = rateLimit({
         windowMs: 15 * 60 * 1000,
         max: 100,
@@ -20,6 +21,7 @@ const limiter = rateLimit({
         },
 });
 
+// Middleware de sécurité et de protection contre les abus
 app.use(helmet());
 app.use(limiter);
 app.use(hpp());
