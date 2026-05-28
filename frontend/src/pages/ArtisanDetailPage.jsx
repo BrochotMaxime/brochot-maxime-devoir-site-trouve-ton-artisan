@@ -7,6 +7,7 @@ import Loader from '../components/common/Loader';
 import ErrorMessage from '../components/common/ErrorMessage';
 
 function ArtisanDetailPage() {
+        // Récupère l'id de l'artisan depuis l'URL
         const { id } = useParams();
 
         const [artisan, setArtisan] = useState(null);
@@ -26,8 +27,10 @@ function ArtisanDetailPage() {
 
                                 const data = await response.json();
                                 setArtisan(data);
+
                         } catch (error) {
                                 setErrorMessage('Impossible de charger la fiche artisan.');
+                                
                         } finally {
                                 setIsLoading(false);
                         }
@@ -36,12 +39,14 @@ function ArtisanDetailPage() {
                 fetchArtisan();
         }, [id]);
 
+        // Met à jour les champs du formulaire de contact
         function handleChange(event) {
                 const { name, value } = event.target;
 
                 setFormData({...formData, [name]: value});
         }
 
+        // Envoie le formulaire de contact à l'API
         async function handleSubmit(event) {
                 event.preventDefault();
 
@@ -73,6 +78,7 @@ function ArtisanDetailPage() {
                                 subject: '',
                                 message: '',
                         });
+
                 } catch (error) {
                         setErrorMessage(error.message || 'Erreur lors de l’envoi du message.');
                 }

@@ -1,6 +1,7 @@
 const { Op } = require('sequelize');
 const { Artisan, Speciality, Category } = require('../models');
 
+// Récupère tous les artisans avec leur spécialité et leur catégorie
 exports.getAllArtisans = async (req, res) => {
         try {
                 const artisans = await Artisan.findAll({
@@ -24,6 +25,7 @@ exports.getAllArtisans = async (req, res) => {
         }
 };
 
+// Récupère les trois artisans mis en avant sur la page d'accueil
 exports.getTopArtisans = async (req, res) => {
         try {
                 const artisans = await Artisan.findAll({
@@ -47,6 +49,7 @@ exports.getTopArtisans = async (req, res) => {
         }
 };
 
+// Récupère un artisan spécifique par son ID
 exports.getArtisanById = async (req, res) => {
         try {
                 const { id } = req.params;
@@ -77,6 +80,7 @@ exports.getArtisanById = async (req, res) => {
         }
 };
 
+// Recherche les artisans dont le nom correspond à la requête de recherche
 exports.searchArtisans = async (req, res) => {
         try {
                 const { name } = req.query;
