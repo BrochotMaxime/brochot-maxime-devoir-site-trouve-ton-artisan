@@ -1,5 +1,7 @@
 .header {
         background-color: #ffffff;
+        text-align: right;
+        position: relative;
 
         &__container {
                 width: 100%;
@@ -34,14 +36,48 @@
                 }
         }
 
+        &__icon-button {
+                font-size: 1rem;
+                font-weight: 600;
+                display: inline-block;
+                background-color: #ffffff;
+                border: none;
+                padding: 4px;
+        }
+
         &__mobile {
                 display: flex;
                 gap: 8px;
         }
 
-        &__desktop {
+        &__mobile-nav {
                 display: none;
-        }
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background-color: #ffffff;
+                border-bottom: 1px solid #0074c7;
+                padding: 1rem;
+                z-index: 10;
+
+                a {
+                        display: block;
+                        padding: 0.75rem 0;
+                        color: #384050;
+                        text-decoration: none;
+                        font-weight: 600;
+                }
+
+                &.is-open {
+                        display: block;
+                }
+                        }
+
+                &__desktop {
+                        display: none;
+                }
+
 
         @media (min-width: 768px) {
                 &__logo {
@@ -56,6 +92,10 @@
                 }
 
                 &__mobile {
+                        display: none;
+                }
+
+                &__mobile-nav {
                         display: none;
                 }
 

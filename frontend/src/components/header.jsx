@@ -7,6 +7,7 @@ import menuBurger from '../assets/burger-bar.png';
 
 function Header() {
         const [searchTerm, setSearchTerm] = useState('');
+        const [isMenuOpen, setIsMenuOpen] = useState(false);
         const navigate = useNavigate();
 
         // Gère la recherche depuis le header et redirige vers la page de résultats
@@ -33,10 +34,22 @@ function Header() {
                                                 <img src={loupe} alt="Loupe rechercher" />
                                         </Link>
 
-                                        <Link to="#" className="header__icon-button" aria-label="Menu de navigation">
-                                                <img src={menuBurger} alt="Menu burger" />
-                                        </Link>
+                                        <button
+                                                type="button"
+                                                className="header__icon-button"
+                                                aria-label="Ouvrir le menu"
+                                                onClick={() => setIsMenuOpen(!isMenuOpen)}
+                                        >
+                                                <img src={menuBurger} alt="" />
+                                        </button>
                                 </div>
+
+                                <nav className={`header__mobile-nav ${isMenuOpen ? 'is-open' : ''}`}>
+                                        <Link to="/categorie/1" onClick={() => setIsMenuOpen(false)}>Bâtiments</Link>
+                                        <Link to="/categorie/2" onClick={() => setIsMenuOpen(false)}>Services</Link>
+                                        <Link to="/categorie/3" onClick={() => setIsMenuOpen(false)}>Fabrication</Link>
+                                        <Link to="/categorie/4" onClick={() => setIsMenuOpen(false)}>Alimentation</Link>
+                                </nav>
 
                                 <div className="header__desktop">
                                         <form className="header__search" onSubmit={handleSearchSubmit}>
