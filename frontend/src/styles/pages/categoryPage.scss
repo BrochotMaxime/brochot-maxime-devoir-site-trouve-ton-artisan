@@ -1,17 +1,13 @@
 .category-page {
         background-color: #f1f8fc;
-        padding: 48px 16px;
+        padding: 16px 16px;
 
         &__container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
                 max-width: 1200px;
                 margin: 0 auto;
-        }
-
-        h1 {
-                color: #384050;
-                font-size: 32px;
-                font-weight: 700;
-                margin-bottom: 8px;
         }
 
         &__count {
@@ -26,7 +22,7 @@
         }
 
         @media (min-width: 768px) {
-                padding: 64px 32px;
+                padding: 72px 32px;
 
                 &__grid {
                         grid-template-columns: repeat(2, 1fr);
