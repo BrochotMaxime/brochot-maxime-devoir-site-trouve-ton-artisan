@@ -1,7 +1,8 @@
 import { Helmet } from 'react-helmet-async';
 import { useEffect, useState } from 'react';
-import { useSearchParams } from 'react-router-dom';
+import { useSearchParams, useNavigate } from 'react-router-dom';
 
+import loupe from '../assets/loupe.png';
 import ArtisanCard from '../components/homePage/ArtisanCard';
 import Loader from '../components/common/Loader';
 import ErrorMessage from '../components/common/ErrorMessage';
@@ -10,10 +11,23 @@ function SearchPage() {
         // Récupère le terme de recherche depuis l'URL
         const [searchParams] = useSearchParams();
         const name = searchParams.get('name');
+        const navigate = useNavigate();
 
+        const [searchTerm, setSearchTerm] = useState('');
         const [artisans, setArtisans] = useState([]);
         const [isLoading, setIsLoading] = useState(true);
         const [errorMessage, setErrorMessage] = useState('');
+
+        function handleSearchSubmit(event) {
+                event.preventDefault();
+
+                if (!searchTerm.trim()) {
+                        return;
+                }
+
+                navigate(`/recherche?name=${encodeURIComponent(searchTerm)}`);
+                setSearchTerm('');
+        }
 
         useEffect(() => {
                 async function fetchSearchResults() {
@@ -70,6 +84,20 @@ function SearchPage() {
                                         {isLoading && <Loader />}
 
                                         {errorMessage && <ErrorMessage message={errorMessage} />}
+
+                                        <form className="search-page__search" onSubmit={handleSearchSubmit}>
+                                                <input
+                                                        type="search"
+                                                        placeholder="Rechercher un artisan"
+                                                        aria-label="Rechercher un artisan"
+                                                        value={searchTerm}
+                                                        onChange={(event) => setSearchTerm(event.target.value)}
+                                                />
+                                        
+                                                <button type="submit" className="search-page__search-button" aria-label="Lancer la recherche">
+                                                        <img src={loupe} alt="" />
+                                                </button>
+                                        </form>
 
                                         {!isLoading && !errorMessage && artisans.length > 0 && (
                                                 <div className="search-page__grid">
