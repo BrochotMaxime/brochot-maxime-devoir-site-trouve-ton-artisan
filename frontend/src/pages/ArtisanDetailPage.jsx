@@ -143,7 +143,7 @@ function ArtisanDetailPage() {
                                         </div>
                                 </div>
 
-                                <div className="artisan-detail__contact-container">
+                                <div className="artisan-detail__contact">
                                         <form className="contact-form" onSubmit={handleSubmit}>
                                                 <h2>Contacter cet artisan</h2>
 

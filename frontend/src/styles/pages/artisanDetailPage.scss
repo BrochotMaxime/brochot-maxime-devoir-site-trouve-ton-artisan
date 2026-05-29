@@ -1,21 +1,34 @@
 .artisan-detail {
         background-color: #f1f8fc;
-        padding: 48px 16px;
+        padding: 16px 16px;
+        // display: flex;
+        // flex-direction: column;
+        // align-items: center;
+        // max-width: 1200px;
 
-        &__container {
-                max-width: 1200px;
+        &__content {
+                max-width: 600px;
                 margin: 0 auto;
-                display: grid;
-                gap: 32px;
         }
 
-        &__contact-container {
+        &__container {
+
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                max-width: 1200px;
+                margin: 0 auto;
+                
+        }
+
+        &__contact {
                 max-width: 600px;
                 margin: 0 auto;
         }
 
         &__image {
-                min-height: 240px;
+                max-height: 240px;
+                width: auto;
                 border-radius: 16px;
                 background-color: #d9d9d9;
                 display: flex;
@@ -23,6 +36,7 @@
                 justify-content: center;
                 color: #384050;
                 overflow: hidden;
+                margin-bottom: 16px;
 
                 img {
                         width: 100%;
@@ -31,40 +45,14 @@
                 }
         }
 
-        h1 {
-                color: #384050;
-                font-size: 32px;
-                font-weight: bold;
-                margin-bottom: 12px;
-        }
-
-        &__meta {
-                color: #384050;
-                font-size: 18px;
-                margin-bottom: 32px;
-        }
-
-        &__about {
-                margin-bottom: 32px;
-
-                h2 {
-                        color: #384050;
-                        font-size: 26px;
-                        font-weight: bold;
-                        margin-bottom: 12px;
-                }
-
-                p {
-                        color: #384050;
-                        font-size: 16px;
-                        line-height: 1.6;
-                }
-        }
-
         @media (min-width: 992px) {
                 padding: 80px 120px;
 
                 &__container {
+                max-width: 1200px;
+                margin: 32px auto;
+                display: grid;
+                gap: 32px;
                         grid-template-columns: 40% 60%;
                         align-items: start;
                 }
