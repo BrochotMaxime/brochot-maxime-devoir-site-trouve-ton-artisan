@@ -8,7 +8,7 @@ function HeroSection() {
                                 <div className="hero__content">
                                         <h1>Trouver un artisan près de chez vous</h1>
                                         <p>Découvrez des artisans qualifiés de la région Auvergne-Rhône-Alpes et contactez-les facilement.</p>
-                                        <Link to="/categorie/1" className="hero__button">Trouver un artisan</Link>
+                                        <Link to="/recherche" className="hero__button">Trouver un artisan</Link>
                                 </div>
                         </div>
                 </section>

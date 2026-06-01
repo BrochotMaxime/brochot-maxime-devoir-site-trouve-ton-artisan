@@ -97,7 +97,13 @@ function SearchPage() {
                                                 </div>
                                         )}
 
-                                        {!isLoading && !errorMessage && artisans.length === 0 && (
+                                        {!name && (
+                                                <p>
+                                                        Saisissez le nom d'un artisan pour commencer votre recherche.
+                                                </p>
+                                        )}
+
+                                        {!isLoading && !errorMessage && name && artisans.length === 0 && (
                                                 <ErrorMessage message="Aucun artisan trouvé." />
                                         )}
                                 </div>
