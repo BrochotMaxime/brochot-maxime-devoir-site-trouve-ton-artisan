@@ -34,7 +34,7 @@ function Header() {
                                 </div>
 
                                 <nav className={`header__mobile-nav ${isMenuOpen ? 'is-open' : ''}`}>
-                                        <Link to="/categorie/1" onClick={() => setIsMenuOpen(false)}>Bâtiments</Link>
+                                        <Link to="/categorie/1" onClick={() => setIsMenuOpen(false)}>Bâtiment</Link>
                                         <Link to="/categorie/2" onClick={() => setIsMenuOpen(false)}>Services</Link>
                                         <Link to="/categorie/3" onClick={() => setIsMenuOpen(false)}>Fabrication</Link>
                                         <Link to="/categorie/4" onClick={() => setIsMenuOpen(false)}>Alimentation</Link>
