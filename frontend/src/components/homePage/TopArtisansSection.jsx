@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-import ArtisanCard from './ArtisanCard';
+import ArtisanCard from '../common/ArtisanCard';
 import Loader from '../common/Loader';
 import ErrorMessage from '../common/ErrorMessage';
 

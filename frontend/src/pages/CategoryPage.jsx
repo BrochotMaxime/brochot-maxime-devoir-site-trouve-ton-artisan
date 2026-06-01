@@ -2,7 +2,7 @@ import { Helmet } from 'react-helmet-async';
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
-import ArtisanCard from '../components/homePage/ArtisanCard';
+import ArtisanCard from '../components/common/ArtisanCard';
 import Loader from '../components/common/Loader';
 import ErrorMessage from '../components/common/ErrorMessage';
 
