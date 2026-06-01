@@ -43,17 +43,26 @@
                 }
         }
 
-        &__grid {
+        &__mobile-list {
                 display: grid;
-                gap: 24px;
-                padding-top: 32px;
+                gap: 1rem;
+        }
+
+        &__grid {
+                display: none;
         }
 
         @media (min-width: 768px) {
                 padding: 64px 32px;
 
+                &__mobile-list {
+                        display: none;
+                }
+
                 &__grid {
+                        display: grid;
                         grid-template-columns: repeat(2, 1fr);
+                        gap: 1.5rem;
                 }
         }
 

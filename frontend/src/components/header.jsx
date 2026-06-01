@@ -56,7 +56,7 @@ function Header() {
                                         </form>
 
                                         <nav className="header__nav" aria-label="Navigation principale">
-                                                <Link to="/categorie/1">Bâtiments</Link>
+                                                <Link to="/categorie/1">Bâtiment</Link>
                                                 <Link to="/categorie/2">Services</Link>
                                                 <Link to="/categorie/3">Fabrication</Link>
                                                 <Link to="/categorie/4">Alimentation</Link>

@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import RatingStars from '../homePage/RatingStars';
+import RatingStars from './RatingStars';
 
 function ArtisanCard({ artisan }) {
         return (

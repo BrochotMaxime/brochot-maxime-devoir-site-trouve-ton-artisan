@@ -5,6 +5,7 @@ import { useSearchParams, useNavigate } from 'react-router-dom';
 import submitSearch from '../utils/submitSearch';
 import loupe from '../assets/loupe.png';
 import ArtisanCard from '../components/common/ArtisanCard';
+import ArtisanListItem from '../components/common/ArtisanListItem';
 import Loader from '../components/common/Loader';
 import ErrorMessage from '../components/common/ErrorMessage';
 
@@ -90,11 +91,19 @@ function SearchPage() {
                                         </form>
 
                                         {!isLoading && !errorMessage && artisans.length > 0 && (
-                                                <div className="search-page__grid">
-                                                        {artisans.map((artisan) => (
-                                                                <ArtisanCard key={artisan.id_artisan} artisan={artisan} />
-                                                        ))}
-                                                </div>
+                                                <>
+                                                        <div className="search-page__mobile-list">
+                                                                {artisans.map((artisan) => (
+                                                                        <ArtisanListItem key={artisan.id_artisan} artisan={artisan} />
+                                                                ))}
+                                                        </div>
+
+                                                        <div className="search-page__grid">
+                                                                {artisans.map((artisan) => (
+                                                                        <ArtisanCard key={artisan.id_artisan} artisan={artisan} />
+                                                                ))}
+                                                        </div>
+                                                </>
                                         )}
 
                                         {!name && (

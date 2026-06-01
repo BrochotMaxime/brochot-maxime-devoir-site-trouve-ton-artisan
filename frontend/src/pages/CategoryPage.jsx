@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import ArtisanCard from '../components/common/ArtisanCard';
+import ArtisanListItem from '../components/common/ArtisanListItem';
 import Loader from '../components/common/Loader';
 import ErrorMessage from '../components/common/ErrorMessage';
 
@@ -79,11 +80,19 @@ function CategoryPage() {
                                                         </p>
 
                                                         {artisans.length > 0 ? (
-                                                                <div className="category-page__grid">
-                                                                        {artisans.map((artisan) => (
-                                                                                <ArtisanCard key={artisan.id_artisan} artisan={artisan} />
-                                                                        ))}
-                                                                </div>
+                                                                <>
+                                                                        <div className="category-page__mobile-list">
+                                                                                {artisans.map((artisan) => (
+                                                                                        <ArtisanListItem key={artisan.id_artisan} artisan={artisan} />
+                                                                                ))}
+                                                                        </div>
+
+                                                                        <div className="category-page__grid">
+                                                                                {artisans.map((artisan) => (
+                                                                                        <ArtisanCard key={artisan.id_artisan} artisan={artisan} />
+                                                                                ))}
+                                                                        </div>
+                                                                </>
                                                         ) : (
                                                                 <p>Aucun artisan trouvé dans cette catégorie.</p>
                                                         )}
