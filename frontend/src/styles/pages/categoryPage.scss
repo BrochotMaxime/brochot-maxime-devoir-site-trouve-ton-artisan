@@ -17,15 +17,26 @@
         }
 
         &__grid {
-                display: grid;
-                gap: 24px;
+                display: none;
         }
 
+        &__mobile-list {
+                display: grid;
+                gap: 1rem;
+        }
+        
         @media (min-width: 768px) {
                 padding: 72px 32px;
+                gap: 24px;
+
+                &__mobile-list {
+                        display: none;
+                }
 
                 &__grid {
+                        display: grid;
                         grid-template-columns: repeat(2, 1fr);
+                        gap: 1.5rem;
                 }
         }
 
