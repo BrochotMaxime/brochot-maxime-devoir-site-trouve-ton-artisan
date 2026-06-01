@@ -1,0 +1,16 @@
+.construction-page {
+        padding: 4rem 1rem;
+
+        &__container {
+                max-width: 800px;
+                margin: 0 auto;
+                text-align: center;
+        }
+
+        &__image {
+                max-width: 100%;
+                height: auto;
+                margin-top: 2rem;
+                border-radius: 8px;
+        }
+}
