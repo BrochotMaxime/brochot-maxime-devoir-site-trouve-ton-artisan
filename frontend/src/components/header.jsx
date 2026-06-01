@@ -1,6 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { useState } from 'react';
 
+import submitSearch from '../utils/submitSearch';
 import logo from '../assets/logo.png';
 import loupe from '../assets/loupe.png';
 import menuBurger from '../assets/burger-bar.png';
@@ -9,18 +10,6 @@ function Header() {
         const [searchTerm, setSearchTerm] = useState('');
         const [isMenuOpen, setIsMenuOpen] = useState(false);
         const navigate = useNavigate();
-
-        // Gère la recherche depuis le header et redirige vers la page de résultats
-        function handleSearchSubmit(event) {
-                event.preventDefault();
-
-                if (!searchTerm.trim()) {
-                        return;
-                }
-
-                navigate(`/recherche?name=${encodeURIComponent(searchTerm)}`);
-                setSearchTerm('');
-        }
 
         return (
                 <header className="header">
@@ -52,7 +41,7 @@ function Header() {
                                 </nav>
 
                                 <div className="header__desktop">
-                                        <form className="header__search" onSubmit={handleSearchSubmit}>
+                                        <form className="header__search" onSubmit={(event) => submitSearch(event, searchTerm, navigate, setSearchTerm)}>
                                                 <input
                                                         type="search"
                                                         placeholder="Rechercher un artisan"
