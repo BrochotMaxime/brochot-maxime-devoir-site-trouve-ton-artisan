@@ -1,23 +1,24 @@
-import { Link } from 'react-router-dom';
 import { Helmet } from 'react-helmet-async';
+import { Link } from 'react-router-dom';
 
 function NotFoundPage() {
-        return
-                <section className="not-found">
+        return (
+                <>
                         <Helmet>
-                                <title>Trouve ton artisan - Page non trouvée</title>
-                                <meta
-                                        name="description"
-                                        content="La page que vous recherchez n'existe pas."
-                                />
+                                <title>Trouve ton artisan - Page introuvable</title>
+                                <meta name="description" content="La page demandée est introuvable." />
                         </Helmet>
-                        
-                        <div className="not-found__container">
-                                <h1>Erreur 404</h1>
-                                <p>La page demandée n'existe pas.</p>
-                                <Link to="/">Retour à l'accueil</Link>
-                        </div>
-                </section>
+
+                        <section className="not-found">
+                                <div className="not-found__container">
+                                        <img src="/images/notFound.jpg" alt="Page introuvable" className="not-found__image" />
+                                        <h1>Page non trouvée</h1>
+                                        <h2>La page que vous recherchez n'existe pas ou a été déplacée.</h2>
+                                        <Link to="/" className="not-found__button">Retour à l'accueil</Link>
+                                </div>
+                        </section>
+                </>
+        );
 }
 
 export default NotFoundPage;
