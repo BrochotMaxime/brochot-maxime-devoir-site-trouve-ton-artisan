@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 
 import { Helmet } from 'react-helmet-async';
-import RatingStars from '../components/homePage/RatingStars';
+import RatingStars from '../components/common/RatingStars';
 import Loader from '../components/common/Loader';
 import ErrorMessage from '../components/common/ErrorMessage';
 
