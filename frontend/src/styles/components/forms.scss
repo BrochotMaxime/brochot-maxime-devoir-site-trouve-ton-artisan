@@ -32,6 +32,7 @@
         button {
                 border: none;
                 border-radius: 12px;
+                width: 180px;
                 padding: 12px 24px;
                 background-color: #0074c7;
                 color: #ffffff;
@@ -41,6 +42,11 @@
                 &:hover {
                         background-color: #00497c;
                 }
+        }
+
+        &__button {
+                display: flex;
+                justify-content: center;
         }
 
         &__success {
