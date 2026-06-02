@@ -205,7 +205,9 @@ function ArtisanDetailPage() {
 
                                                 {errorMessage && (<p className="contact-form__error">{errorMessage}</p>)}
 
-                                                <button type="submit">Envoyer</button>
+                                                <div className="contact-form__button">
+                                                        <button type="submit">Envoyer</button>
+                                                </div>
                                         </form>
                                 </div>
                         </section>
