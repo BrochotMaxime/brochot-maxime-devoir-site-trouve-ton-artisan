@@ -11,7 +11,7 @@ function ArtisanDetailPage() {
         const { id } = useParams();
 
         const [artisan, setArtisan] = useState(null);
-        const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '' });
+        const [formData, setFormData] = useState({ name: '', email: '', subject: '', message: '', consent: false });
         const [isLoading, setIsLoading] = useState(true);
         const [errorMessage, setErrorMessage] = useState('');
         const [successMessage, setSuccessMessage] = useState('');
@@ -41,9 +41,12 @@ function ArtisanDetailPage() {
 
         // Met à jour les champs du formulaire de contact
         function handleChange(event) {
-                const { name, value } = event.target;
+                const { name, value, type, checked } = event.target;
 
-                setFormData({...formData, [name]: value});
+                setFormData({
+                        ...formData,
+                        [name]: type === 'checkbox' ? checked : value
+                });
         }
 
         // Envoie le formulaire de contact à l'API
@@ -61,8 +64,9 @@ function ArtisanDetailPage() {
                                 },
                                 body: JSON.stringify({
                                         ...formData,
-                                artisanId: artisan.id_artisan,
-                        }),
+                                        artisanId: artisan.id_artisan,
+                                        consent: formData.consent ? 'on' : 'off'
+                                })
                         });
 
                         const data = await response.json();
@@ -77,6 +81,7 @@ function ArtisanDetailPage() {
                                 email: '',
                                 subject: '',
                                 message: '',
+                                consent: false
                         });
 
                 } catch (error) {
@@ -187,7 +192,12 @@ function ArtisanDetailPage() {
                                                 </label>
 
                                                 <label className="contact-form__consent">
-                                                        <input type="checkbox" name="consent" required />
+                                                        <input 
+                                                                type="checkbox"
+                                                                name="consent" 
+                                                                checked={formData.consent}
+                                                                onChange={handleChange}
+                                                                required />
                                                         J'accepte les Conditions Générales d'Utilisation (CGU) *
                                                 </label>
 
