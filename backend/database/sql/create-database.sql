@@ -1,23 +1,12 @@
 -- Création de la base de données "trouve_ton_artisan"
 
-CREATE DATABASE IF NOT EXISTS trouve_ton_artisan
-        CHARACTER SET utf8mb4
-        COLLATE utf8mb4_unicode_ci;
-
--- Création de l'utilisateur "artisan_user" avec les privilèges nécessaires
-
-CREATE USER IF NOT EXISTS 'user'@'localhost' IDENTIFIED BY 'password';
-
-GRANT ALL PRIVILEGES ON trouve_ton_artisan.* TO 'user'@'localhost';
-FLUSH PRIVILEGES;
-
--- Utilisation de la base de données "trouve_ton_artisan"
-
-USE trouve_ton_artisan;
+USE defaultdb;
 
 -- Création des tables
 
-DROP TABLE IF EXISTS artisan, specialite, categorie;
+DROP TABLE IF EXISTS artisan;
+DROP TABLE IF EXISTS specialite;
+DROP TABLE IF EXISTS categorie;
 
 CREATE TABLE categorie (
         id_categorie INT AUTO_INCREMENT PRIMARY KEY,
