@@ -72,7 +72,8 @@ function ArtisanDetailPage() {
                         const data = await response.json();
 
                         if (!response.ok) {
-                                throw new Error(data.message);
+                                const firstErrorMessage = data.errors?.[0]?.msg || data.message;
+                                throw new Error(firstErrorMessage);
                         }
 
                         setSuccessMessage(data.message);
