@@ -1,7 +1,5 @@
 -- Insertion des données
 
-USE trouve_ton_artisan;
-
 -- Ordre d'insertion selon les dépendances entre les tables :
 -- 1. Table categorie
 -- 2. Table specialite (dépend de categorie)
